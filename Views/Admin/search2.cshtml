@@ -1,0 +1,39 @@
+﻿@model finalproject3.Models.DishProduct
+@{
+    ViewBag.Title = "search2";
+    Layout = "~/Views/Shared/_Layoutdish.cshtml";
+}
+
+<h2>searching</h2>
+
+<div>
+     
+       
+<div id="content" class="float_r">
+        	@foreach(var x in ViewBag.X)
+            {
+           
+            <div class="content_half float_l checkout">
+		 <figure class="img-indent" ><img src="~/images/@x.Imagepath" alt="" width="50%" height="50%"/> </figure>
+                              <br />
+             	 Product ID :  
+                  <input type="text"  name="id" value="@x.DPId" style="width:300px;"  />
+                <br />
+                <br />
+                Product Name :  
+                  <input type="text"  name="name" value="@x.Name" style="width:300px;"  />
+                <br />
+                <br />
+              Product price:
+                <input type="text"  name="price" value="@x.Price" style="width:300px;"  />
+                <br />
+                <br />
+
+                Product Qyantity:
+                <input type="text"  name="quantity" value="@x.Quantity" style="width:300px;"  />
+                <br />
+                <br />
+
+            </div>
+         }
+      

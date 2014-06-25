@@ -1,0 +1,104 @@
+﻿@model finalproject3.Models.DishProduct
+@{
+    ViewBag.Title = "view_all_dishes";
+    Layout = "~/Views/Shared/_Layoutdish.cshtml";
+}
+@section tabs{
+    <div class="menu-row">
+            	<div class="menu-border">
+                	<div class="main">
+                        <nav>
+                            <ul class="menu">
+                                <li><a class="active" href="/Home/index">Main</a></li>
+                                
+                                <li><a href="/Customer/calendar">View all Dishes</a></li>
+                                
+                                <li><a href="/Account/login">  Log Out</a></li>
+                                <li class="last"><a href="/Home/contacts">Contacts</a></li>
+                                <li><a href="/Home/about">About Us</a></li>
+                                <li><a href="/Admin/Gallery">Gallery</a></li>
+                                 
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+}
+<div id="result"></div>
+        <script>
+            $(document).ready(function () {
+                $('#searchbutton').click(function ()
+                        {
+                            tittle = $('#keyword').val();
+                            $.getJSON("../DishProduct/getProductDetails?Name=" + tittle, function (data) {
+
+                            
+                                $.each(data, function (i, item)
+                                {
+                                    $('#result').text(item.tittle);
+                                });
+
+                            });
+                        });
+                    });
+                </script>
+                
+<article class="col-1">
+                                <div class="bg">
+                                    <div class="padding">
+                                    	<h2 class="p2">Dishes</h2>
+                                        <div class="wrapper p3">
+                                              <div id="templatemo_search">
+            <form action="/Admin/search" method="Post">
+              <input type="text"   name="keyword" id="keyword" title="keyword" onfocus="clearText(this)" onblur="clearText(this)" class="txt_field" />
+              <input type="button" name="Search" value="Search " alt="Search" id="searchbutton" title="Search" class="sub_btn"  />
+            </form>
+                                                  <div id="checking">Checking...</div>
+   
+           <script type="text/javascript">
+
+               $(document).ready(function () {
+
+                   $('#checking').hide();
+
+                   $('#searchbutton').click(function () {
+
+                       alert("asp");
+                       var name = $('#keyword').val();
+                       $('#checking').show();
+                       $.getJSON("/Admin/search?keyword=" + name, function (data) {
+                           $('#checking').hide();
+                           if (data) {
+                               $('#result').text("Email already exists in database");
+
+                           }
+                           else {
+                               $('#result').text("Email is available");
+                           }
+                       });
+
+                   });
+
+               });
+    </script>
+        </div>
+                                            <a class="button-2" href="/Admin/Adddish" style="margin-left:400px" >Add New Dish</a>
+@foreach(var x in ViewBag.X)
+    {
+                    <figure class="img-indent" ><img src="~/images/@x.Imagepath" alt="" width="50%" height="50%"/> 
+                                            <div class="extra-wrap" >
+                                            	<h3>@x.Name</h3>
+                                                <p class="p1">Quantity: @x.Quantity</p>
+                                                <p class="p1">Region: @x.Region</p>
+                                                <p class="p1">Price: Rs: @x.Price/1kg</p>
+                                                <p class="p1">Category: @x.category</p>
+                                                 <p class="p1">@Html.ActionLink("Update", "Updatedish", new { id=x.DPId }) |
+                                                 @Html.ActionLink("Delete", "Deletedish", new { id=x.DPId }) </p>
+                                            </div>
+                                                </figure>
+    }
+                                              </div>
+                                         </div>
+                                </div>
+   
+    </article>

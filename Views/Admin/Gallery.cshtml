@@ -1,0 +1,70 @@
+﻿@{
+    ViewBag.Title = "Gallery";
+    Layout = "~/Views/Shared/_Layoutdish.cshtml";
+}
+@section tabs{
+    <div class="menu-row">
+            	<div class="menu-border">
+                	<div class="main">
+                        <nav>
+                            <ul class="menu">
+                                <li><a class="active" href="/Home/index">Main</a></li>
+                                
+                                <li><a href="/Customer/calendar">View all Dishes</a></li>
+                                
+                                <li><a href="/Account/login">  Log Out</a></li>
+                                <li class="last"><a href="/Home/contacts">Contacts</a></li>
+                                <li><a href="/Home/about">About Us</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+}
+<h2>Gallery</h2>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<link rel="stylesheet" href="~/Content/jquery.fancybox.css?v=2.1.4" type="text/css" media="screen" />
+<script type="text/javascript" src="~/Scripts/jquery.fancybox.js?v=2.1.4"></script>
+
+@foreach(var x in ViewBag.X)
+{
+ 
+<a class="fancybox" href="~/images/@x.Imagepath" alt="">
+      <img src="~/images/@x.Imagepath" alt=""/></a>
+}
+
+     
+<script type='text/javascript'>
+$(document).ready(function() {
+	/* This is basic - uses default settings */
+	$("a#single_image").fancybox();
+	
+	/* Using custom settings */
+	$("a#inline").fancybox({
+		'hideOnContentClick': true
+	});
+
+	/* Apply fancybox to multiple items */
+	$("a.group").fancybox({
+		'transitionIn'	:	'elastic',
+		'transitionOut'	:	'elastic',
+		'speedIn'		:	600, 
+		'speedOut'		:	200, 
+		'overlayShow'	:	false
+	});
+});
+</script> 
+<script>
+    // Activate fancyBox
+    $(".fancybox")
+        .attr('rel', 'gallery')
+        .fancybox({
+            padding: 0
+        });
+
+ </script>
+       <script>
+           // Launch fancyBox on first element
+           $(".fancybox").eq(0).trigger('click');
+    </script>
+

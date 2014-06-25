@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.Title = "Adddish";
+    Layout = "~/Views/Shared/_Layoutdish.cshtml";
+}
+@section tabs{
+    <div class="menu-row">
+            	<div class="menu-border">
+                	<div class="main">
+                        <nav>
+                            <ul class="menu">
+                                <li><a class="active" href="/Home/index">Main</a></li>
+                                
+                                <li><a href="/Admin/view_all_dishes">View all Dishes</a></li>
+                                
+                                <li><a href="/Account/login">  Log Out</a></li>
+                                <li class="last"><a href="/Home/contacts">Contacts</a></li>
+                                <li><a href="/Home/about">About Us</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+}
+
+                        	<article class="col-1">
+                                <div class="bg">
+                                    <div class="padding">
+       <div id="leftPan" align="center" style="text-align:center">
+         <h1><span ><strong style="margin-left:200px">Add Dish</></strong></span>	    </h1> <br />
+
+<div id="leftblockonePan" align="center" style="text-align:left">
+
+    <form  method="post" action="/Admin/Adddishafter" enctype = "multipart/form-data" >
+        <table style="margin-left:200px">
+          <tr><td><p >Name of dish: </p></td>
+              <td> 
+              <input type="text" id="name" name="name"/></td></tr>
+          <tr><td><p >Quantity of Dish: </p></td>
+              <td> <input type="text" id="quantity" name="quantity" /></td></tr>
+		  <tr><td><p >Region: </p></td>
+              <td> <input type="text" id="region" name="region"/></td></tr>
+ 		  <tr><td><p >Price of 1kg: </p> </td>
+               <td> <input type="text" id="price" name="price"/></td></tr>
+          <tr><td><p >Category: </p> </td><td> 
+              <select id="category" name="category">
+              <option  value="Vegetable">Vegetable</option>
+              <option  value="Meat">Meat</option>
+              <option  value="Rice">Rice</option>
+              <option  value="Desert">Desert</option>
+              </select></td></tr>
+            <tr><td><p >Image of Dish: </p>  <input type="file" id="file" name="file"/></td></tr>
+             <tr><td><input type="submit" value="Proceed"/></td></tr>
+            </table>
+          </form>
+    
+  </div>
+           </div>
+        </div>
+                            </article>
+                          
+                        

@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "login";
+    Layout = "~/Views/Shared/_Layoutdish.cshtml";
+}
+@section tabs{
+     <div class="menu-row">
+            	<div class="menu-border">
+                	<div class="main">
+                        <nav>
+                            <ul class="menu">
+                               <li><a class="active" href="/Home/index">Main</a></li>
+                                
+                                <li><a href="/Customer/calendar">Dish to Order</a></li>
+                                <li class="last"><a href="/Home/contacts">Contacts</a></li>
+                                <li><a href="/Account/login">login</a></li>
+                                <li><a href="/Account/signup">Sign Up</a></li>
+                                <li><a href="/Home/about">About Us</a></li>
+                                <li><a href="/Admin/search">Search</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+ }
+   <div id="bodyPan">
+  		<h1><span ><strong><em style="margin-left:250px">Member Login</em></strong></span></h1> <br />
+<div id="leftPan" align="center" style="text-align:left">
+    	<form action="/Account/login" method="post" class="form1">
+            <table style="margin-left:300px">
+		<tr><td><p>Name</p></td><td><input name="login-name" type="text" /></td></tr>
+		<tr>
+        <td><p>Password</p></td>
+		<td><input name="login-password" type="password" /><br />
+        <br /></td>
+        </tr>
+        <tr><td><input type="submit" value="Log in"/></td></tr>
+    </table>
+	</form>
+    </div>  

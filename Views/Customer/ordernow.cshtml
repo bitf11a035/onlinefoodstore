@@ -1,0 +1,102 @@
+﻿@model finalproject3.Models.DishProduct
+@{
+    ViewBag.Title = "ordernow";
+    Layout = "~/Views/Shared/_Layoutdish.cshtml";
+}
+@section tabs{
+    <div class="menu-row">
+            	<div class="menu-border">
+                	<div class="main">
+                        <nav>
+                            <ul class="menu">
+                                <li><a class="active" href="/Home/index">Main</a></li>
+                                
+                                <li><a href="/Customer/calendar">Dishes To Order</a></li>
+                                
+                                <li><a href="/Account/login">  Log Out</a></li>
+                                <li class="last"><a href="/Home/contacts">Contacts</a></li>
+                                <li><a href="/Home/about">About Us</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+}
+<div>
+<img src="~/images/@ViewBag.X.Imagepath" alt="" width="40%" height="40%"/>
+      </div> 
+<div><h1>@ViewBag.extra.Name</h1></div>
+@using (Html.BeginForm("ordernowconfirm", "Customer", FormMethod.Post))
+{
+    @Html.ValidationSummary(true)
+<fieldset>
+    <legend></legend>
+     @Html.HiddenFor(model => model.DPId)
+   
+    <div>
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+        </div>
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Region)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Region)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Quantity)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Quantity)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.category)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.category)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Price)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Price)
+    </div>
+    <div>
+        Enter quantity to order: <input name="required_quantity" type="text" />
+    </div>
+       
+</fieldset>
+
+    <p>
+        <input class="button-2" type="submit" value="Add to cart" /> 
+    </p>
+}
+@*<article class="col-1">
+                                <div class="bg">
+                                    <div class="padding">
+                                    	<h3 class="p2">Aloo Shimla Mirch</h3>
+                                        <div class="wrapper p3">
+                                        	<!--<figure class="img-indent"><img src="~/images/aloo-shimla.jpg" alt="" width="40%" height="40%"/></figure>-->
+                                          
+                                            <figure class="img-indent"><img src="~/images/aloo-shimla.jpg" alt="" width="70%" height="70%"/>
+                                              <div class="extra-wrap">
+                                            	<h6>Aloo Shimla Mirch</h6>
+                                                <p class="p1">Category: Vegetable</p>
+                                                <p class="p1">Region: Pakistan</p>
+                                                <p class="p1">Price: Rs: 75/1kg</p>
+                                                <a class="button-2" href="/Cart/Add_to_cart">Add to Cart</a>
+                                                 
+                                            </div>
+                                                </figure>
+                                             </div>
+                                </div>
+                            </article>*@
+                                              
+                                        
